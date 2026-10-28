@@ -136,7 +136,7 @@ window.SITES = SITES;
 })();
 // revela os blocos ao rolar
 (() => {
-  const els = [...document.querySelectorAll('.strip article, .shotwin, .code, .site, .steps, .sites h2, .how h2, .code-sec h2, .sublead, .steps-pills')];
+  const els = [...document.querySelectorAll('.strip article, .shotwin, .code, .site, .sites h2, .code-sec h2, .sublead, .steps-pills')];
   if (!('IntersectionObserver' in window)) return;
   els.forEach(el => { el.classList.add('reveal'); const sib = [...el.parentElement.children].filter(x => els.includes ? els.includes(x) : [...els].includes(x)); el.style.transitionDelay = (sib.indexOf(el) * 110) + 'ms'; });
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const el = e.target; el.classList.add('in'); io.unobserve(el); setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.transitionDelay = ''; }, 1300 + parseInt(el.style.transitionDelay || 0)); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
