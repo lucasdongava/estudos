@@ -85,7 +85,7 @@ h3{font-size:17px;letter-spacing:-.02em;line-height:1.3}
 .cta{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:34px}
 
 /* faixa de 3 pilares */
-.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));padding-block:clamp(36px,6vw,72px)}
 .strip article{padding:34px 30px 38px;text-align:center;border-right:1px solid var(--line);display:flex;flex-direction:column;align-items:center;gap:10px;transition:background .5s var(--ease)}
 .strip article:last-child{border-right:0}
 .strip article:hover{background:var(--panel2)}
@@ -94,7 +94,7 @@ h3{font-size:17px;letter-spacing:-.02em;line-height:1.3}
 .strip p{margin:0;color:var(--fg2);font-size:14px;max-width:34ch}
 
 /* janela com prints reais dos sites */
-.showcase{padding:clamp(24px,4vw,40px)}
+.showcase{padding:clamp(40px,6vw,80px) clamp(24px,4vw,40px)}
 .shotwin{max-width:1000px;margin:0 auto;border:1px solid var(--line);border-radius:16px;background:var(--panel);box-shadow:var(--shadow);overflow:hidden}
 .shot-bar{position:relative;display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--panel2)}
 .dots{display:flex;gap:6px;margin-right:6px}
@@ -246,6 +246,7 @@ h3{font-size:17px;letter-spacing:-.02em;line-height:1.3}
   .cta .btn:not(.dark){display:none}
   .cta .btn{height:48px;font-size:15px}
   /* pilares: lista compacta */
+  .strip{padding-block:28px}
   .strip article{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:2px;align-items:start;text-align:left;padding:20px}
   .strip .sq{grid-row:1 / span 2;width:36px;height:36px;margin:0}
   .strip h3{font-size:16px}
