@@ -30,6 +30,7 @@ const I18N = {
     lab1: 'Aulas e projetos guiados', lab2: 'Editor com execução no navegador', lab3: 'Resumo e painel de progresso', labBtn: 'Abrir o LabII',
     pooD: 'Modelagem e análise de sistemas: diagramas UML, diagramas de sequência, modelagem de dados e testes, explicados passo a passo com exemplos.',
     poo1: 'Aulas por unidade, de 0 a 3', poo2: 'Testes rápidos e exercícios', poo3: 'Resumo para a prova e painel de domínio', pooBtn: 'Abrir o Projeto OO',
+    nameLab: 'LabII - Java', namePoo: 'Projeto Orientado a Objetos',
     foot: 'Material de estudo independente, feito por Lucas.'
   },
   en: {
@@ -41,7 +42,7 @@ const I18N = {
     lead: 'Straight-to-the-point lessons, examples you can run and exercises to lock it in. Built to help you truly understand, with no fluff and no wasted time.',
     stripAria: 'Project pillars',
     p1t: 'Straight to the point', p1d: 'Each course is split into short lessons, from the basics to the challenge, with a summary for the night before the exam.',
-    p2t: 'Learn by doing', p2d: 'Exercises and quick quizzes in every lesson. In LabII you write and run Java code right in the browser.',
+    p2t: 'Learn by doing', p2d: 'Exercises and quick quizzes in every lesson. In Lab II you write and run Java code right in the browser.',
     p3t: 'Real progress', p3d: 'A dashboard shows what you have mastered and where you still slip. Everything is saved in your own browser, with no account and no tracking.',
     tabsAria: 'Courses', openNew: 'Open in new tab',
     navHint: 'This is the real site: click the lessons in the menu, scroll and try it out. The courses themselves are in Portuguese.',
@@ -59,9 +60,10 @@ const I18N = {
     sitesSub: 'Each card opens an independent site. New courses are added here as they get ready. The courses are currently in Portuguese.',
     live: 'Live',
     labD: 'Programming Lab II: Java fundamentals, control structures, arrays, methods and exceptions, with an editor to write and run code right there.',
-    lab1: 'Guided lessons and projects', lab2: 'In-browser code editor', lab3: 'Summary and progress dashboard', labBtn: 'Open LabII',
+    lab1: 'Guided lessons and projects', lab2: 'In-browser code editor', lab3: 'Summary and progress dashboard', labBtn: 'Open Lab II',
     pooD: 'Systems modeling and analysis: UML diagrams, sequence diagrams, data modeling and testing, explained step by step with examples.',
     poo1: 'Lessons by unit, 0 to 3', poo2: 'Quick quizzes and exercises', poo3: 'Exam summary and mastery dashboard', pooBtn: 'Open the OO Project',
+    nameLab: 'Programming Lab II - Java', namePoo: 'Object-Oriented Project',
     foot: 'Independent study material, made by Lucas.'
   }
 };

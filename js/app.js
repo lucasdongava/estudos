@@ -124,6 +124,7 @@ window.SITES = SITES;
   };
   tabs.forEach(t => t.onclick = () => select(t.dataset.s));
   addEventListener('resize', () => { fit(); moveInd(); });
+  document.addEventListener('langchange', () => requestAnimationFrame(moveInd));
   fit(); select('lab2');
   document.fonts && document.fonts.ready.then(moveInd);
   // carrega o site só quando a seção chega perto da tela; o outro carrega em segundo plano depois
