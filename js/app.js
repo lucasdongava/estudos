@@ -23,14 +23,10 @@ window.SITES = SITES;
   const lines = [...box.querySelectorAll('.ln')], op = $('#op'), runBtn = $('#runBtn'), out = $('#out'), outTxt = $('#outTxt'), badge = $('#okBadge'), hint = $('#hint');
   const pills = [...document.querySelectorAll('.pill')];
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const HINTS = [
-    'Leia a aula: a função soma recebe dois números inteiros e devolve o resultado.',
-    'Rode o exemplo: o resultado aparece na hora, aqui mesmo no navegador. Sem instalar nada.',
-    'Resolva o exercício: troque o + por * (clique no operador) e rode de novo.'
-  ];
+  const HINTS = () => [T('h0'), T('h1h'), T('h2h')];
   let tok = 0, cur = 0, auto = true, visible = false, started = false;
   const sleep = (ms, t) => new Promise(r => setTimeout(() => r(t === tok), RM ? 0 : ms));
-  const setHint = i => { hint.classList.add('fade'); setTimeout(() => { hint.textContent = HINTS[i]; hint.classList.remove('fade'); }, RM ? 0 : 280); };
+  const setHint = i => { hint.classList.add('fade'); setTimeout(() => { hint.textContent = HINTS()[i]; hint.classList.remove('fade'); }, RM ? 0 : 280); };
   const DUR = [3600, 2700, 4200];  // tempo de cada etapa: o contorno da pílula se completa em verde nesse tempo
   const mark = i => pills.forEach((p, k) => { p.classList.remove('on'); p.classList.toggle('done', k < i); p.setAttribute('aria-selected', String(k === i)); if (k === i) { void p.offsetWidth; p.style.setProperty('--dur', DUR[i] + 'ms'); p.classList.add('on'); } });
   const hl = (...ix) => lines.forEach((l, k) => l.classList.toggle('hl', ix.includes(k)));
@@ -56,7 +52,7 @@ window.SITES = SITES;
   async function typeOut(str, t) { outTxt.textContent = ''; for (const ch of str) { outTxt.textContent += ch; if (!(await sleep(28, t))) return false; } return true; }
   async function execute(t, withPress) {
     if (withPress) { runBtn.classList.add('press'); if (!(await sleep(160, t))) return false; runBtn.classList.remove('press'); }
-    runBtn.classList.add('busy'); badge.classList.remove('on'); out.classList.add('on'); outTxt.textContent = 'Executando…';
+    runBtn.classList.add('busy'); badge.classList.remove('on'); out.classList.add('on'); outTxt.textContent = T('running');
     if (!(await sleep(450, t))) return false;
     runBtn.classList.remove('busy'); hl(4, 5);
     if (!(await typeOut('Total: ' + result(), t))) return false;
@@ -87,15 +83,16 @@ window.SITES = SITES;
     tabs.forEach(x => { x.classList.toggle('on', x === tb); x.setAttribute('aria-selected', String(x === tb)); });
     panes.forEach(p => { p.hidden = p.dataset.p !== tb.dataset.t; });
     box.classList.toggle('uml', tb.dataset.t === 'uml');
-    $('#copyBtn').textContent = 'Copiar';
+    $('#copyBtn span').textContent = T('copy');
   });
   $('#copyBtn').onclick = async e => {
     const txt = box.classList.contains('uml') ? box.querySelector('[data-p="uml"]').innerText : lines.map(l => l.textContent).join('\n');
-    try { await navigator.clipboard.writeText(txt); e.target.textContent = 'Copiado ✓'; } catch (err) { e.target.textContent = 'Não foi possível'; }
-    setTimeout(() => { e.target.textContent = 'Copiar'; }, 1600);
+    const lbl = $('#copyBtn span'); try { await navigator.clipboard.writeText(txt); lbl.textContent = T('copied'); } catch (err) { lbl.textContent = T('copyFail'); }
+    setTimeout(() => { lbl.textContent = T('copy'); }, 1600);
   };
   // começa quando a seção aparece e pausa quando sai da tela
-  hint.textContent = HINTS[0];
+  hint.textContent = HINTS()[0];
+  window.currentHint = () => HINTS()[cur];
   new IntersectionObserver(es => es.forEach(e => {
     visible = e.isIntersecting;
     if (visible && !started) { started = true; if (RM) { auto = false; showLines(); hl(0, 1, 2); } else play(0); }
@@ -141,4 +138,17 @@ window.SITES = SITES;
   els.forEach(el => { el.classList.add('reveal'); const sib = [...el.parentElement.children].filter(x => els.includes ? els.includes(x) : [...els].includes(x)); el.style.transitionDelay = (sib.indexOf(el) * 110) + 'ms'; });
   const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { const el = e.target; el.classList.add('in'); io.unobserve(el); setTimeout(() => { el.classList.remove('reveal', 'in'); el.style.transitionDelay = ''; }, 1300 + parseInt(el.style.transitionDelay || 0)); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.06 });
   els.forEach(el => io.observe(el));
+})();
+
+// idioma: botão com menu (pt-BR / English)
+(() => {
+  const box = $('#lang'), btn = $('#langBtn'), menu = $('#langMenu');
+  const close = () => { box.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); };
+  btn.onclick = e => { e.stopPropagation(); const open = !box.classList.contains('open'); box.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+  menu.querySelectorAll('[data-l]').forEach(b => b.onclick = () => { applyLang(b.dataset.l, true); close(); });
+  document.addEventListener('click', e => { if (!box.contains(e.target)) close(); });
+  addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+  // textos que o JS troca sozinho acompanham o idioma
+  document.addEventListener('langchange', () => { const h = $('#hint'); if (h) h.textContent = window.currentHint ? window.currentHint() : h.textContent; });
+  applyLang(LANG, false);
 })();

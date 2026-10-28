@@ -14,65 +14,72 @@
 <script>try{var t=localStorage.getItem('estudos:tema');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 </head>
 <body>
-<div class="announce"><span>Novas disciplinas entram aqui conforme ficam prontas</span><a href="#disciplinas">Ver disciplinas <i aria-hidden="true">▸</i></a></div>
+<div class="announce"><span data-i18n="ann">Novas disciplinas entram aqui conforme ficam prontas</span><a href="#disciplinas"><span data-i18n="annLink">Ver disciplinas</span> <i aria-hidden="true">▸</i></a></div>
 
 <header class="top">
   <div class="top-in">
-    <a class="logo" href="#topo" aria-label="Thoth: início da página">
+    <a class="logo" href="#topo" aria-label="Thoth: início da página" data-i18n-attr="aria-label:logoAria">
       <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 400 240" fill="currentColor"><path d="M0 0H400V222C392 150 310 16 232 16H224A12 12 0 0 0 212 28C212 170 260 240 400 240H0C140 240 188 170 188 28A12 12 0 0 0 176 16H168C90 16 8 150 0 222Z"/></svg></span>
       <span>Thoth</span>
     </a>
-    <nav class="nav" aria-label="Seções">
-      <a href="#projeto">O projeto</a>
-      <a href="#plataforma">Plataforma</a>
-      <a href="#disciplinas">Disciplinas</a>
+    <nav class="nav" aria-label="Seções" data-i18n-attr="aria-label:navAria">
+      <a href="#projeto" data-i18n="navProj">O projeto</a>
+      <a href="#plataforma" data-i18n="navPlat">Plataforma</a>
+      <a href="#disciplinas" data-i18n="navDisc">Disciplinas</a>
     </nav>
     <div class="top-r">
-      <button class="icon-btn" id="themeBtn" aria-label="Alternar tema">◐</button>
-      <a class="btn dark sm" href="#disciplinas">Começar a estudar</a>
+      <div class="lang" id="lang">
+        <button class="icon-btn lang-btn" id="langBtn" aria-haspopup="menu" aria-expanded="false" aria-label="Idioma" data-i18n-attr="aria-label:langAria"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.7 3.8 5.7 3.8 9S14.500 18.300 12 21c-2.500-2.700-3.800-5.700-3.800-9S9.500 5.700 12 3z"/></svg></button>
+        <div class="lang-menu" id="langMenu" role="menu">
+          <button role="menuitemradio" data-l="pt" aria-checked="true"><span>Português (BR)</span><i aria-hidden="true">✓</i></button>
+          <button role="menuitemradio" data-l="en" aria-checked="false"><span>English</span><i aria-hidden="true">✓</i></button>
+        </div>
+      </div>
+      <button class="icon-btn" id="themeBtn" aria-label="Alternar tema" data-i18n-attr="aria-label:themeAria">◐</button>
+      <a class="btn dark sm" href="#disciplinas" data-i18n="ctaStart">Começar a estudar</a>
     </div>
   </div>
 </header>
 
 <main id="topo" class="frame">
   <section class="hero">
-    <h1>As matérias mais difíceis, explicadas de um jeito simples.</h1>
-    <p class="lead">Aulas diretas, exemplos que você pode rodar e exercícios para fixar. Feito para entender de verdade, sem enrolação e sem perder tempo.</p>
+    <h1 data-i18n="h1">As matérias mais difíceis, explicadas de um jeito simples.</h1>
+    <p class="lead" data-i18n="lead">Aulas diretas, exemplos que você pode rodar e exercícios para fixar. Feito para entender de verdade, sem enrolação e sem perder tempo.</p>
     <div class="cta">
-      <a class="btn dark" href="#disciplinas">Começar a estudar</a>
-      <a class="btn" href="#projeto">Conhecer o projeto</a>
+      <a class="btn dark" href="#disciplinas" data-i18n="ctaStart">Começar a estudar</a>
+      <a class="btn" href="#projeto" data-i18n="ctaMore">Conhecer o projeto</a>
     </div>
   </section>
 
-  <section class="strip" id="projeto" aria-label="Pilares do projeto">
+  <section class="strip" id="projeto" aria-label="Pilares do projeto" data-i18n-attr="aria-label:stripAria">
     <article>
       <span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H11v16H5.5A1.5 1.5 0 0 1 4 18.5zM13 4h5.5A1.5 1.5 0 0 1 20 5.5v13a1.5 1.5 0 0 1-1.5 1.5H13z"/></svg></span>
-      <h3>Direto ao ponto</h3>
-      <p>Cada matéria é dividida em aulas curtas, do básico ao desafio, com um resumo para a véspera da prova.</p>
+      <h3 data-i18n="p1t">Direto ao ponto</h3>
+      <p data-i18n="p1d">Cada matéria é dividida em aulas curtas, do básico ao desafio, com um resumo para a véspera da prova.</p>
     </article>
     <article>
       <span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14"/></svg></span>
-      <h3>Aprenda praticando</h3>
-      <p>Exercícios e testes rápidos em cada aula. No LabII você escreve e executa código Java direto no navegador.</p>
+      <h3 data-i18n="p2t">Aprenda praticando</h3>
+      <p data-i18n="p2d">Exercícios e testes rápidos em cada aula. No LabII você escreve e executa código Java direto no navegador.</p>
     </article>
     <article>
       <span class="sq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span>
-      <h3>Progresso de verdade</h3>
-      <p>Um painel mostra o que você já domina e onde ainda erra. Tudo fica salvo no seu navegador, sem conta e sem rastreio.</p>
+      <h3 data-i18n="p3t">Progresso de verdade</h3>
+      <p data-i18n="p3d">Um painel mostra o que você já domina e onde ainda erra. Tudo fica salvo no seu navegador, sem conta e sem rastreio.</p>
     </article>
   </section>
 
 
   <section class="showcase" id="plataforma">
     <div class="shotwin" data-shots>
-      <div class="shot-bar" role="tablist" aria-label="Disciplinas">
+      <div class="shot-bar" role="tablist" aria-label="Disciplinas" data-i18n-attr="aria-label:tabsAria">
         <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
         <div class="tabs-wrap">
           <i class="ind" aria-hidden="true"></i>
           <button class="stab on" role="tab" aria-selected="true" data-s="lab2">LabII - Java</button>
           <button class="stab" role="tab" aria-selected="false" data-s="poo">Projeto Orientado a Objetos</button>
         </div>
-        <a class="open-new" id="openNew" href="#" target="_blank" rel="noopener">Abrir em nova aba <span aria-hidden="true">↗</span></a>
+        <a class="open-new" id="openNew" href="#" target="_blank" rel="noopener"><span data-i18n="openNew">Abrir em nova aba</span> <span aria-hidden="true">↗</span></a>
       </div>
       <div class="stage" id="stage">
         <div class="layer on" data-sp="lab2">
@@ -87,35 +94,35 @@
         </div>
       </div>
     </div>
-    <p class="hint-nav">É o site de verdade: clique nas aulas do menu, role a página e teste à vontade.</p>
+    <p class="hint-nav" data-i18n="navHint">É o site de verdade: clique nas aulas do menu, role a página e teste à vontade.</p>
   </section>
 
   <section class="code-sec">
-    <h2>Estude com a mão na massa.</h2>
-    <p class="sublead">Leia a teoria, rode o exemplo e confira o resultado. Cada aula traz código e diagramas prontos para você mexer.</p>
-    <div class="stepper" role="tablist" aria-label="Etapas de uma aula">
-      <button class="pill on" role="tab" data-i="0"><i>1</i><span class="lbl">Leia a aula</span></button>
-      <button class="pill" role="tab" data-i="1"><i>2</i><span class="lbl">Rode o exemplo</span></button>
-      <button class="pill" role="tab" data-i="2"><i>3</i><span class="lbl">Resolva o exercício</span></button>
+    <h2 data-i18n="codeH">Estude com a mão na massa.</h2>
+    <p class="sublead" data-i18n="codeSub">Leia a teoria, rode o exemplo e confira o resultado. Cada aula traz código e diagramas prontos para você mexer.</p>
+    <div class="stepper" role="tablist" aria-label="Etapas de uma aula" data-i18n-attr="aria-label:stepsAria">
+      <button class="pill on" role="tab" data-i="0"><i>1</i><span class="lbl" data-i18n="s1">Leia a aula</span></button>
+      <button class="pill" role="tab" data-i="1"><i>2</i><span class="lbl" data-i18n="s2">Rode o exemplo</span></button>
+      <button class="pill" role="tab" data-i="2"><i>3</i><span class="lbl" data-i18n="s3">Resolva o exercício</span></button>
     </div>
     <div class="code" data-tabs>
       <div class="code-bar" role="tablist">
         <button class="tab on" role="tab" data-t="java">Java</button>
         <button class="tab" role="tab" data-t="uml">UML</button>
-        <button class="run" id="runBtn" aria-label="Executar o código"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg>Executar</button>
-        <button class="copy" id="copyBtn" aria-label="Copiar código">Copiar</button>
+        <button class="run" id="runBtn" aria-label="Executar o código" data-i18n-attr="aria-label:runAria"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z" fill="currentColor"/></svg><span data-i18n="run">Executar</span></button>
+        <button class="copy" id="copyBtn" aria-label="Copiar código" data-i18n-attr="aria-label:copyAria"><span data-i18n="copy">Copiar</span></button>
       </div>
 <div class="code-grid">
-<pre class="code-body" data-p="java"><code><span class="ln"><span class="k">public static</span> <span class="k">int</span> <span class="f">soma</span>(<span class="k">int</span> a, <span class="k">int</span> b) {</span><span class="ln">    <span class="k">return</span> a <button class="op" id="op" type="button" title="Clique para trocar o operador" aria-label="Operador, clique para trocar">+</button> b;</span><span class="ln">}</span><span class="ln"></span><span class="ln"><span class="k">int</span> total = soma(<span class="n">7</span>, <span class="n">5</span>);</span><span class="ln">System.out.println(<span class="s">"Total: "</span> + total);</span></code></pre>
-<pre class="code-body" data-p="uml" hidden><code><span class="k">Aluno</span>  ──────▶  <span class="k">Matrícula</span>  ──────▶  <span class="k">Disciplina</span>
+<pre class="code-body" data-p="java"><code><span class="ln"><span class="k">public static</span> <span class="k">int</span> <span class="f">soma</span>(<span class="k">int</span> a, <span class="k">int</span> b) {</span><span class="ln">    <span class="k">return</span> a <button class="op" id="op" type="button" title="Clique para trocar o operador" aria-label="Operador, clique para trocar" data-i18n-attr="title:opTitle,aria-label:opAria">+</button> b;</span><span class="ln">}</span><span class="ln"></span><span class="ln"><span class="k">int</span> total = soma(<span class="n">7</span>, <span class="n">5</span>);</span><span class="ln">System.out.println(<span class="s">"Total: "</span> + total);</span></code></pre>
+<pre class="code-body" data-p="uml" data-i18n-html="uml" hidden><code><span class="k">Aluno</span>  ──────▶  <span class="k">Matrícula</span>  ──────▶  <span class="k">Disciplina</span>
  nome            data                  nome
  email           situação              créditos
  matricular()    trancar()             vagas()
 
 <span class="c">// associação 1 .. * entre Aluno e Matrícula</span></code></pre>
       <div class="out" id="out" aria-live="polite">
-        <div class="out-h"><span>Saída</span><span class="badge" id="okBadge">✓ Resolvido</span></div>
-        <div class="out-b"><span id="outTxt"></span><i class="caret"></i></div>
+        <div class="out-h"><span data-i18n="outH">Saída</span><span class="badge" id="okBadge" data-i18n="solved">✓ Resolvido</span></div>
+        <div class="out-b" data-i18n-attr="data-empty:empty" data-empty="Clique em Executar para ver o resultado."><span id="outTxt"></span><i class="caret"></i></div>
       </div>
       </div>
     </div>
@@ -123,22 +130,22 @@
   </section>
 
   <section class="sites" id="disciplinas">
-    <h2>Escolha por onde começar.</h2>
-    <p class="sublead">Cada card abre um site independente. Novas disciplinas entram aqui conforme forem ficando prontas.</p>
+    <h2 data-i18n="sitesH">Escolha por onde começar.</h2>
+    <p class="sublead" data-i18n="sitesSub">Cada card abre um site independente. Novas disciplinas entram aqui conforme forem ficando prontas.</p>
     <div class="grid2">
       <article class="site">
-        <div class="site-top"><span class="tag">Java</span><span class="st">No ar</span></div>
+        <div class="site-top"><span class="tag">Java</span><span class="st" data-i18n="live">No ar</span></div>
         <h3>LabII - Java</h3>
-        <p>Laboratório de Programação II: fundamentos de Java, estruturas de controle, vetores, métodos e exceções, com editor para escrever e executar código ali mesmo.</p>
-        <ul><li>Aulas e projetos guiados</li><li>Editor com execução no navegador</li><li>Resumo e painel de progresso</li></ul>
-        <a class="btn dark" href="https://lucasdongava.github.io/lab2/" data-site="lab2">Abrir o LabII <span aria-hidden="true">→</span></a>
+        <p data-i18n="labD">Laboratório de Programação II: fundamentos de Java, estruturas de controle, vetores, métodos e exceções, com editor para escrever e executar código ali mesmo.</p>
+        <ul><li data-i18n="lab1">Aulas e projetos guiados</li><li data-i18n="lab2">Editor com execução no navegador</li><li data-i18n="lab3">Resumo e painel de progresso</li></ul>
+        <a class="btn dark" href="https://lucasdongava.github.io/lab2/" data-site="lab2"><span data-i18n="labBtn">Abrir o LabII</span> <span aria-hidden="true">→</span></a>
       </article>
       <article class="site">
-        <div class="site-top"><span class="tag">UML</span><span class="st">No ar</span></div>
+        <div class="site-top"><span class="tag">UML</span><span class="st" data-i18n="live">No ar</span></div>
         <h3>Projeto Orientado a Objetos</h3>
-        <p>Modelagem e análise de sistemas: diagramas UML, diagramas de sequência, modelagem de dados e testes, explicados passo a passo com exemplos.</p>
-        <ul><li>Aulas por unidade, de 0 a 3</li><li>Testes rápidos e exercícios</li><li>Resumo para a prova e painel de domínio</li></ul>
-        <a class="btn dark" href="https://lucasdongava.github.io/projeto-orientado-objeto/" data-site="poo">Abrir o Projeto OO <span aria-hidden="true">→</span></a>
+        <p data-i18n="pooD">Modelagem e análise de sistemas: diagramas UML, diagramas de sequência, modelagem de dados e testes, explicados passo a passo com exemplos.</p>
+        <ul><li data-i18n="poo1">Aulas por unidade, de 0 a 3</li><li data-i18n="poo2">Testes rápidos e exercícios</li><li data-i18n="poo3">Resumo para a prova e painel de domínio</li></ul>
+        <a class="btn dark" href="https://lucasdongava.github.io/projeto-orientado-objeto/" data-site="poo"><span data-i18n="pooBtn">Abrir o Projeto OO</span> <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </section>
@@ -148,9 +155,10 @@
 <footer class="foot">
   <div class="foot-in">
     <span class="logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 400 240" fill="currentColor"><path d="M0 0H400V222C392 150 310 16 232 16H224A12 12 0 0 0 212 28C212 170 260 240 400 240H0C140 240 188 170 188 28A12 12 0 0 0 176 16H168C90 16 8 150 0 222Z"/></svg></span><span>Thoth</span></span>
-    <span class="muted">Material de estudo independente, feito por Lucas.</span>
+    <span class="muted" data-i18n="foot">Material de estudo independente, feito por Lucas.</span>
   </div>
 </footer>
+<script src="js/i18n.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>
