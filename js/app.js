@@ -1,4 +1,4 @@
-/* Estudos — tema claro/escuro, abas do exemplo de código e entrada suave das seções */
+/* Thoth — tema claro/escuro, abas do exemplo de código e entrada suave das seções */
 const $ = s => document.querySelector(s);
 
 $('#themeBtn').onclick = () => {
