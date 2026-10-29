@@ -11,8 +11,8 @@ $('#themeBtn').onclick = () => {
 
 // links das disciplinas: quando os subdomínios estiverem ativos, troque só aqui
 const SITES = {
-  lab2: 'https://lucasdongava.github.io/lab2/',
-  poo: 'https://lucasdongava.github.io/projeto-orientado-objeto/'
+  lab2: 'https://lab2.thothdev.com/',
+  poo: 'https://poo.thothdev.com/'
 };
 document.querySelectorAll('[data-site]').forEach(a => { if (SITES[a.dataset.site]) a.href = SITES[a.dataset.site]; });
 window.SITES = SITES;
