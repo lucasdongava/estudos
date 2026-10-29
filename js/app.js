@@ -14,7 +14,10 @@ const SITES = {
   lab2: 'https://lab2.thothdev.com/',
   poo: 'https://poo.thothdev.com/'
 };
-document.querySelectorAll('[data-site]').forEach(a => { if (SITES[a.dataset.site]) a.href = SITES[a.dataset.site]; });
+// os sites abrem no idioma escolhido aqui (?lang=); dentro da janela ao vivo o idioma também é trocado por mensagem
+const withLang = u => { const [b, h] = u.split('#'); return b + (b.includes('?') ? '&' : '?') + 'lang=' + LANG + (h ? '#' + h : ''); };
+const applySiteLinks = () => document.querySelectorAll('[data-site]').forEach(a => { if (SITES[a.dataset.site]) a.href = withLang(SITES[a.dataset.site]); });
+applySiteLinks(); document.addEventListener('langchange', applySiteLinks);
 window.SITES = SITES;
 
 // exemplo interativo: a aula "se resolvendo" em fluxo (ler > rodar > resolver); as pílulas também são clicáveis
@@ -107,7 +110,7 @@ window.SITES = SITES;
   const themeNow = () => document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
   const postTheme = f => { try { f.contentWindow.postMessage({ estudosTema: themeNow() }, '*'); } catch (e) {} };
   const frames = layers.map(l => l.querySelector('iframe'));
-  const urlOf = l => { const f = l.querySelector('iframe'); return f.dataset.src; };
+  const urlOf = l => withLang(l.querySelector('iframe').dataset.src);
   const moveInd = () => { const on = tabs.find(x => x.classList.contains('on')); if (on) { ind.style.width = on.offsetWidth + 'px'; ind.style.transform = `translateX(${on.offsetLeft}px)`; } };
   const fit = () => {
     const w = stage.clientWidth, big = w >= 720;
@@ -116,7 +119,7 @@ window.SITES = SITES;
       else { f.style.width = '100%'; f.style.height = '100%'; f.style.transform = 'none'; }
     });
   };
-  const load = l => { const f = l.querySelector('iframe'); if (f.src) return; f.addEventListener('load', () => { l.classList.add('ready'); postTheme(f); }, { once: true }); f.src = f.dataset.src; };
+  const load = l => { const f = l.querySelector('iframe'); if (f.src) return; f.addEventListener('load', () => { l.classList.add('ready'); postTheme(f); }, { once: true }); f.src = urlOf(l); };
   const select = key => {
     tabs.forEach(x => { const on = x.dataset.s === key; x.classList.toggle('on', on); x.setAttribute('aria-selected', String(on)); });
     layers.forEach(l => { const on = l.dataset.sp === key; l.classList.toggle('on', on); if (on) { load(l); openNew.href = urlOf(l); } });
@@ -124,7 +127,11 @@ window.SITES = SITES;
   };
   tabs.forEach(t => t.onclick = () => select(t.dataset.s));
   addEventListener('resize', () => { fit(); moveInd(); });
-  document.addEventListener('langchange', () => requestAnimationFrame(moveInd));
+  document.addEventListener('langchange', () => {
+    requestAnimationFrame(moveInd);
+    const on = layers.find(l => l.classList.contains('on')); if (on) openNew.href = urlOf(on);
+    frames.forEach(f => { try { f.contentWindow.postMessage({ estudosLang: LANG }, '*'); } catch (e) {} });   // os sites trocam de idioma (só dentro da landing)
+  });
   fit(); select('lab2');
   document.fonts && document.fonts.ready.then(moveInd);
   // carrega o site só quando a seção chega perto da tela; o outro carrega em segundo plano depois
