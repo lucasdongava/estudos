@@ -31,7 +31,7 @@ const I18N = {
     pooD: 'Modelagem e análise de sistemas: diagramas UML, diagramas de sequência, modelagem de dados e testes, explicados passo a passo com exemplos.',
     poo1: 'Aulas por unidade, de 0 a 3', poo2: 'Testes rápidos e exercícios', poo3: 'Resumo para a prova e painel de domínio', pooBtn: 'Abrir o Projeto OO',
     nameLab: 'LabII - Java', namePoo: 'Projeto Orientado a Objetos',
-    foot: 'Material de estudo independente, feito por Lucas.'
+    foot: 'Material de estudo independente, feito por Lucas Gava.'
   },
   en: {
     meta: 'Thoth: the hardest college courses explained in a simple, fast way, with short lessons, exercises, summaries and progress tracking.',
@@ -64,7 +64,7 @@ const I18N = {
     pooD: 'Systems modeling and analysis: UML diagrams, sequence diagrams, data modeling and testing, explained step by step with examples.',
     poo1: 'Lessons by unit, 0 to 3', poo2: 'Quick quizzes and exercises', poo3: 'Exam summary and mastery dashboard', pooBtn: 'Open the OO Project',
     nameLab: 'Programming Lab II - Java', namePoo: 'Object-Oriented Project',
-    foot: 'Independent study material, made by Lucas.'
+    foot: 'Independent study material, made by Lucas Gava.'
   }
 };
 
