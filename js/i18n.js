@@ -31,6 +31,8 @@ const I18N = {
     pooD: 'Modelagem e análise de sistemas: diagramas UML, diagramas de sequência, modelagem de dados e testes, explicados passo a passo com exemplos.',
     poo1: 'Aulas por unidade, de 0 a 3', poo2: 'Testes rápidos e exercícios', poo3: 'Resumo para a prova e painel de domínio', pooBtn: 'Abrir o Projeto OO',
     nameLab: 'LabII - Java', namePoo: 'Projeto Orientado a Objetos',
+    nameJs: 'Trilha JavaScript', jsBtn: 'Abrir a Trilha JavaScript', js1: '15 aulas em 4 módulos', js2: 'Exemplos, erros comuns e exercícios com gabarito', js3: 'Resumo para revisão e progresso salvo',
+    jsD: 'JavaScript intermediário e avançado: tipos e coerção, closures, this, protótipos, event loop, promises, módulos, erros e desempenho.',
     nameReact: 'Trilha React', reactBtn: 'Abrir a Trilha React', react1: '15 aulas em 4 módulos', react2: 'Exemplos, erros comuns e exercícios com gabarito', react3: 'Resumo para revisão e progresso salvo',
     reactD: 'React intermediário e avançado, atualizado para o React 19: renderização, hooks, padrões de componentes, Server Components, performance, testes e TypeScript.',
     foot: 'Material de estudo independente, feito por'
@@ -66,6 +68,8 @@ const I18N = {
     pooD: 'Systems modeling and analysis: UML diagrams, sequence diagrams, data modeling and testing, explained step by step with examples.',
     poo1: 'Lessons by unit, 0 to 3', poo2: 'Quick quizzes and exercises', poo3: 'Exam summary and mastery dashboard', pooBtn: 'Open the OO Project',
     nameLab: 'Programming Lab II - Java', namePoo: 'Object-Oriented Project',
+    nameJs: 'JavaScript Track', jsBtn: 'Open the JavaScript Track', js1: '15 lessons in 4 modules', js2: 'Examples, common mistakes and exercises with answers', js3: 'Review summary and saved progress',
+    jsD: 'Intermediate and advanced JavaScript: types and coercion, closures, this, prototypes, the event loop, promises, modules, errors and performance. Content in Portuguese.',
     nameReact: 'React Track', reactBtn: 'Open the React Track', react1: '15 lessons in 4 modules', react2: 'Examples, common mistakes and exercises with answers', react3: 'Review summary and saved progress',
     reactD: 'Intermediate and advanced React, updated for React 19: rendering, hooks, component patterns, Server Components, performance, testing and TypeScript. Content in Portuguese.',
     foot: 'Independent study material, made by'
