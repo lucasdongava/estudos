@@ -12,7 +12,8 @@ $('#themeBtn').onclick = () => {
 // links das disciplinas: quando os subdomínios estiverem ativos, troque só aqui
 const SITES = {
   lab2: 'https://lab2.thothdev.com/',
-  poo: 'https://poo.thothdev.com/'
+  poo: 'https://poo.thothdev.com/',
+  react: 'https://react.thothdev.com/'
 };
 // os sites abrem no idioma escolhido aqui (?lang=); dentro da janela ao vivo o idioma também é trocado por mensagem
 const withLang = u => { const [b, h] = u.split('#'); return b + (b.includes('?') ? '&' : '?') + 'lang=' + LANG + (h ? '#' + h : ''); };
