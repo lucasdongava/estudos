@@ -18,7 +18,8 @@ const SITES = {
 };
 // os sites abrem no idioma escolhido aqui (?lang=); dentro da janela ao vivo o idioma também é trocado por mensagem
 const withLang = u => { const [b, h] = u.split('#'); return b + (b.includes('?') ? '&' : '?') + 'lang=' + LANG + (h ? '#' + h : ''); };
-const applySiteLinks = () => document.querySelectorAll('[data-site]').forEach(a => { if (SITES[a.dataset.site]) a.href = withLang(SITES[a.dataset.site]); });
+const LANG_SITES = ['lab2', 'poo'];   // react e javascript so existem em portugues: link limpo, sem ?lang=
+const applySiteLinks = () => document.querySelectorAll('[data-site]').forEach(a => { const s = a.dataset.site; if (SITES[s]) a.href = LANG_SITES.includes(s) ? withLang(SITES[s]) : SITES[s]; });
 applySiteLinks(); document.addEventListener('langchange', applySiteLinks);
 window.SITES = SITES;
 
